@@ -1,29 +1,25 @@
 <template>
 <div>
-  NEWS VIEW
+<!--  <div v-for="item in this.$store.state.news">{{item}}</div>-->
+  <p v-for="news in this.$store.state.news" :key="news.id">
+    <a :href="news.url">{{ news.title }}</a><br>
+    <small>{{ news.time_ago }} by {{ news.domain }}</small>
+  </p>
+
 </div>
 </template>
 
 <script>
 
-import {fetchNewsList} from '../api/index';
 
 export default {
   name: "NewsView",
   data() {
     return {
-      users:[]
     }
   },
   created(){
-    let t = this;
-    fetchNewsList() .then( function (response){
-          console.log(response)
-        t.users = response.data;
-      })
-      .catch( function (error){
-        console.log(error)
-      })
+    this.$store.dispatch('FETCH_NEWS');
   }
 
 }

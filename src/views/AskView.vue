@@ -1,29 +1,22 @@
 <template>
   <div>
-    ASK VIEW
+    <p v-for="ask in this.$store.state.ask" :key="ask.id">
+      <a :href="ask.url">{{ ask.title }}</a><br>
+      <small>{{ ask.time_ago }} by {{ ask.user }}</small>
+    </p>
   </div>
 </template>
 
 <script>
 
-import {fetchAskList} from "../api";
-
 export default {
   name: "AskView",
   data(){
     return {
-      ask: []
     }
   },
   created() {
-    let t = this;
-    fetchAskList() .then( function (response){
-      console.log(response)
-      t.ask = response.data;
-    }).catch( function (error){
-       console.log(error)
-    })
-
+    this.$store.dispatch("FETCH_ASK");
   },
 }
 </script>
