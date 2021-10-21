@@ -26,3 +26,32 @@ export {
     fetchAskList,
     fetchJobsList
 }
+/**
+ * promise 예제
+ * */
+
+function getData(){
+    return new Promise((resolve, reject) => {
+        resolve(100);
+        reject('error');
+    })
+}
+
+getData()
+    .then(data => console.log(data))
+    .catch( error => console.log(error));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
