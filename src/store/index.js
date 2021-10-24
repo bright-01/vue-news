@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import actions from './actions';
 import mutations from './mutations';
+import getter from './getter'
 
 Vue.use(Vuex);
 
@@ -27,14 +28,7 @@ export const store = new Vuex.Store({
         userinfo:{},
         askDetail:{}
     },
-    getters : {
-        fetchJobs(state){
-            return state.jobs;
-        },
-        fetchItem(state){
-            return state.askDetail;
-        }
-    },
+    getters : getter,
     actions : actions,
     mutations : mutations
 })

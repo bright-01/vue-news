@@ -1,9 +1,30 @@
 <template>
 <div>
-  <p v-for="job in this.$store.state.jobs" :key="job.id">
-    <a :href="job.url">{{ job.title }}</a><br>
-    <small>{{ job.time_ago }} by {{ job.domain }}</small>
-  </p>
+
+  <ul class = 'news-list'>
+    <li v-for="jobs in fetchJobs" class="post" :key="jobs.id">
+      <div class="points">
+        {{jobs.points || 0}}
+      </div>
+
+      <div>
+        <p class="news-title">
+          <a :href="jobs.url">
+            {{ jobs.title }}
+          </a>
+        </p>
+        <small class="link-text">
+          {{ jobs.time_ago }} by
+          <a :href="jobs.url">
+            {{jobs.domain}}
+          </a>
+<!--          <router-link v-bind:to="`/user/${jobs.user}`" class="link-text">-->
+<!--            {{ jobs.user }}-->
+<!--          </router-link>-->
+        </small>
+      </div>
+    </li>
+  </ul>
 </div>
 </template>
 
@@ -40,5 +61,31 @@ export default {
 </script>
 
 <style scoped>
+.news-list{
+  padding: 0;
+  margin: 0;
+}
 
+.post{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.points{
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #42b883;
+}
+.news-title{
+  margin: 0;
+}
+
+.link-text{
+  color: #828282
+}
 </style>
