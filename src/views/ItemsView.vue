@@ -42,6 +42,7 @@ export default {
     },
   },
   created(){
+    console.log("###########################3")
     const id = this.$route.params.id;
     this.$store.dispatch("FETCH_ASK_DETAIL", id);
   }

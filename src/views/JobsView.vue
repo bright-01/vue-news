@@ -1,44 +1,45 @@
 <template>
-<div>
+  <ListItem></ListItem>
+<!--<div>-->
 
-  <ul class = 'news-list'>
-    <li v-for="jobs in fetchJobs" class="post" :key="jobs.id">
-      <div class="points">
-        {{jobs.points || 0}}
-      </div>
+<!--  <ul class = 'news-list'>-->
+<!--    <li v-for="jobs in fetchJobs" class="post" :key="jobs.id">-->
+<!--      <div class="points">-->
+<!--        {{jobs.points || 0}}-->
+<!--      </div>-->
 
-      <div>
-        <p class="news-title">
-          <a :href="jobs.url">
-            {{ jobs.title }}
-          </a>
-        </p>
-        <small class="link-text">
-          {{ jobs.time_ago }} by
-          <a :href="jobs.url">
-            {{jobs.domain}}
-          </a>
-<!--          <router-link v-bind:to="`/user/${jobs.user}`" class="link-text">-->
-<!--            {{ jobs.user }}-->
-<!--          </router-link>-->
-        </small>
-      </div>
-    </li>
-  </ul>
-</div>
+<!--      <div>-->
+<!--        <p class="news-title">-->
+<!--          <a :href="jobs.url">-->
+<!--            {{ jobs.title }}-->
+<!--          </a>-->
+<!--        </p>-->
+<!--        <small class="link-text">-->
+<!--          {{ jobs.time_ago }} by-->
+<!--          <a :href="jobs.url">-->
+<!--            {{jobs.domain}}-->
+<!--          </a>-->
+<!--&lt;!&ndash;          <router-link v-bind:to="`/user/${jobs.user}`" class="link-text">&ndash;&gt;-->
+<!--&lt;!&ndash;            {{ jobs.user }}&ndash;&gt;-->
+<!--&lt;!&ndash;          </router-link>&ndash;&gt;-->
+<!--        </small>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</div>-->
 </template>
 
 <script>
 
-import { mapGetters} from 'vuex';
+// import { mapGetters} from 'vuex';
+import ListItem from "../components/ListItem";
 
 export default {
   name: "JobsView",
-  data(){
-    return {
-    }
-  },
-  computed: {
+  components:{
+    ListItem
+  }
+  // computed: {
     // 1. state를 가져오는 computed 함수
     // fetchJobs (){
     //   return this.$store.state.jobs;
@@ -50,42 +51,42 @@ export default {
     // })
 
     // 3. vuex의 헬퍼 함수 사용 getter을 가져옴
-    ...mapGetters({
-      fetchJobs : 'fetchJobs'
-    })
-  },
-  created() {
-   this.$store.dispatch("FETCH_JOBS");
-  },
+    // ...mapGetters({
+    //   fetchJobs : 'fetchJobs'
+    // })
+  // },
+  // created() {
+  //  this.$store.dispatch("FETCH_JOBS");
+  // },
 }
 </script>
 
 <style scoped>
-.news-list{
-  padding: 0;
-  margin: 0;
-}
+/*.news-list{*/
+/*  padding: 0;*/
+/*  margin: 0;*/
+/*}*/
 
-.post{
-  list-style: none;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-}
+/*.post{*/
+/*  list-style: none;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  border-bottom: 1px solid #eee;*/
+/*}*/
 
-.points{
-  width: 80px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #42b883;
-}
-.news-title{
-  margin: 0;
-}
+/*.points{*/
+/*  width: 80px;*/
+/*  height: 60px;*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  justify-content: center;*/
+/*  color: #42b883;*/
+/*}*/
+/*.news-title{*/
+/*  margin: 0;*/
+/*}*/
 
-.link-text{
-  color: #828282
-}
+/*.link-text{*/
+/*  color: #828282*/
+/*}*/
 </style>

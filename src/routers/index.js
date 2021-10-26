@@ -16,18 +16,21 @@ export const router = new VueRouter({
           redirect : "/news"
         }, {
             path: '/news', // url 주소
+            name: 'news',
             component: NewsView // url 주소로 갔을 대 표시될 컴포넌트
         }, {
             path: '/ask', // url 주소
+            name: 'ask',
             component: AskView // url 주소로 갔을 대 표시될 컴포넌트
         }, {
             path: '/jobs', // url 주소
+            name: 'jobs',
             component: JobsView // url 주소로 갔을 대 표시될 컴포넌트
         }, {
             path: '/user/:id', // url 주소
             component: UserView // url 주소로 갔을 대 표시될 컴포넌트
         },{
-            path: '/items/:id', // url 주소
+            path: '/item/:id', // url 주소
             component: ItemsView // url 주소로 갔을 대 표시될 컴포넌트
         }
     ]
