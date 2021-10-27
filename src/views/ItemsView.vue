@@ -2,16 +2,22 @@
 <div>
   <div>
     <section class="header-container">
-      <div class="user-container">
+<!--      <div class="user-container">-->
         <div>
-          <i class="fas fa-user-circle"></i>
+          <i class="fas fa-user"></i>
         </div>
-        <div class="user-description">
-          <router-link :to="'/user/' + userName">{{  userName }}</router-link>
-          <div class="time">{{  userTimeAgo }}</div>
-        </div>
-      </div>
+<!--        <div class="user-description">-->
+<!--          <router-link :to="'/user/' + userName">{{  userName }}</router-link>-->
+<!--          <div class="time">{{  userTimeAgo }}</div>-->
+<!--        </div>-->
+<!--      </div>-->
+      <UserProfile :userInfo="fetchItem">
+        <div slot="username"> {{fetchItem.user}}</div>
+        <template slot="time"> {{fetchItem.time_ago}}</template>
+      </UserProfile>
+      <section>
       <h2>{{ userQuestion }}</h2>
+      </section>
     </section>
     <section>
       <div v-html="userContent" class="content"></div>
@@ -22,7 +28,7 @@
 
 <script>
 import {mapGetters} from "vuex";
-
+import UserProfile from "../components/UserProfile";
 export default {
 
   name: "NewsView",
@@ -45,6 +51,9 @@ export default {
     console.log("###########################3")
     const id = this.$route.params.id;
     this.$store.dispatch("FETCH_ASK_DETAIL", id);
+  },
+  components : {
+    UserProfile
   }
 }
 </script>
