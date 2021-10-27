@@ -28,14 +28,21 @@
 
 <script>
 import ListItem from "../components/ListItem";
+import bus from "../utils/bus.js";
+
 export default {
   name: "NewsView",
   components: {
-    ListItem
-  }
-  // created(){
-  //   this.$store.dispatch('FETCH_NEWS');
-  // }
+    ListItem,
+
+
+  },
+  created(){
+    bus.$emit('start:spinner');
+    this.$store.dispatch('FETCH_NEWS');
+    bus.$emit('end:spinner');
+
+  },
 
 }
 </script>

@@ -38,9 +38,9 @@
 import ListItem from "../components/ListItem";
 export default {
   name: "AskView",
-  // created() {
-  //   this.$store.dispatch("FETCH_ASK");
-  // },
+  created() {
+    this.$store.dispatch("FETCH_ASK");
+  },
   components : {
     ListItem
   }

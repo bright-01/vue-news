@@ -38,7 +38,7 @@ export default {
   name: "JobsView",
   components:{
     ListItem
-  }
+  },
   // computed: {
     // 1. state를 가져오는 computed 함수
     // fetchJobs (){
@@ -55,9 +55,9 @@ export default {
     //   fetchJobs : 'fetchJobs'
     // })
   // },
-  // created() {
-  //  this.$store.dispatch("FETCH_JOBS");
-  // },
+  created() {
+   this.$store.dispatch("FETCH_JOBS");
+  },
 }
 </script>
 

@@ -37,20 +37,20 @@
 <script>
 export default {
   name: "ListItem",
-  created(){
-   let fetchName = '';
-   const name = this.$route.name;
-   if(name === 'news'){
-     fetchName = 'FETCH_NEWS';
-   } else if (name === 'ask'){
-     fetchName = 'FETCH_ASK';
-   } else if (name === 'jobs'){
-     fetchName = 'FETCH_JOBS';
-   }
-   console.log(fetchName);
-    // this.$store.dispatch('FETCH_NEWS');
-    this.$store.dispatch(fetchName);
-  },
+  // created(){
+  //  let fetchName = '';
+  //  const name = this.$route.name;
+  //  if(name === 'news'){
+  //    fetchName = 'FETCH_NEWS';
+  //  } else if (name === 'ask'){
+  //    fetchName = 'FETCH_ASK';
+  //  } else if (name === 'jobs'){
+  //    fetchName = 'FETCH_JOBS';
+  //  }
+  //  console.log(fetchName);
+  //   // this.$store.dispatch('FETCH_NEWS');
+  //   this.$store.dispatch(fetchName);
+  // },
   computed : {
     getListItme() {
       const name = this.$route.name;
