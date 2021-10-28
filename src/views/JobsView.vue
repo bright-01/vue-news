@@ -33,6 +33,7 @@
 
 // import { mapGetters} from 'vuex';
 import ListItem from "../components/ListItem";
+import bus from "../utils/bus";
 
 export default {
   name: "JobsView",
@@ -55,9 +56,16 @@ export default {
     //   fetchJobs : 'fetchJobs'
     // })
   // },
-  created() {
-   this.$store.dispatch("FETCH_JOBS");
-  },
+  created(){
+    bus.$emit('start:spinner');
+    setTimeout(()=>{
+      this.$store.dispatch("FETCH_JOBS")
+          .then( () => {
+            console.log("New Fetched");
+            bus.$emit('end:spinner');
+          }).catch(error => console.log(error));
+    }, 1000)
+  }
 }
 </script>
 

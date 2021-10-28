@@ -9,6 +9,9 @@ export default  {
     SET_JOBS(state, jobs){
         state.jobs = jobs;
     },
+    SET_LIST(state, list){
+        state.list = list;
+    },
     SET_USERINFO(state, userinfo){
         console.log(userinfo)
         state.userinfo = userinfo;

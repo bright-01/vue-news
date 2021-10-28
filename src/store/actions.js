@@ -1,5 +1,7 @@
-import {fetchAskList, fetchJobsList, fetchNewsList, fetchUserInfo,
-    fetchAskDetail} from '../api/index';
+import {
+    fetchAskList, fetchJobsList, fetchNewsList, fetchUserInfo,
+    fetchAskDetail, fetchList
+} from '../api/index';
 
 export default {
 
@@ -21,17 +23,35 @@ export default {
     },
     FETCH_JOBS({commit}) {
         fetchJobsList()
-            .then(({data}) => commit("SET_JOBS", data))
+            .then(({data}) => {
+                commit("SET_JOBS", data)
+                return data;
+            })
             .catch(error => console.log(error));
     },
+    FETCH_LIST({commit}, pageName){
+      fetchList(pageName)
+          .then(({data}) =>{
+              commit("SET_LIST", data);
+              return data;
+          })
+          .catch(error => console.log(error));
+    },
+
     FETCH_USERINFO({commit}, username){
         fetchUserInfo(username)
-            .then(({data}) => commit("SET_USERINFO", data))
+            .then(({data}) => {
+                commit("SET_USERINFO", data);
+                return data;
+            })
             .catch(error => console.log(error));
     },
     FETCH_ASK_DETAIL({commit}, id){
         fetchAskDetail(id)
-            .then(({data}) => commit("SET_ASK_DETAIL", data))
+            .then(({data}) => {
+                commit("SET_ASK_DETAIL", data);
+                return data;
+            })
             .catch(error => console.log(error));
     }
 }

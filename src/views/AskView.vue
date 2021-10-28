@@ -36,10 +36,18 @@
 
 <script>
 import ListItem from "../components/ListItem";
+import bus from "../utils/bus";
 export default {
   name: "AskView",
-  created() {
-    this.$store.dispatch("FETCH_ASK");
+  created(){
+    bus.$emit('start:spinner');
+    setTimeout(()=>{
+      this.$store.dispatch("FETCH_ASK")
+          .then( () => {
+            console.log("New Fetched");
+            bus.$emit('end:spinner');
+          }).catch(error => console.log(error));
+    }, 1000)
   },
   components : {
     ListItem
