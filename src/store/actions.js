@@ -7,7 +7,7 @@ export default {
 
 
     FETCH_NEWS({commit}) { // 일반적인 자바스크립트 object 값 가져오는 방법
-        fetchNewsList()
+        return fetchNewsList()
             .then(response => {
                 console.log(response.data)
                 commit("SET_NEWS", response.data)
@@ -17,12 +17,12 @@ export default {
             .catch(error => console.log(error));
     },
     FETCH_ASK({commit}) { // es6의 Destructuring 방식으로 값을 가져오는 방법
-        fetchAskList()
+        return  fetchAskList()
             .then(({data}) => commit("SET_ASK", data))
             .catch(error => console.log(error));
     },
     FETCH_JOBS({commit}) {
-        fetchJobsList()
+        return fetchJobsList()
             .then(({data}) => {
                 commit("SET_JOBS", data)
                 return data;
@@ -30,7 +30,7 @@ export default {
             .catch(error => console.log(error));
     },
     FETCH_LIST({commit}, pageName){
-      fetchList(pageName)
+      return fetchList(pageName)
           .then(({data}) =>{
               commit("SET_LIST", data);
               return data;
@@ -39,7 +39,7 @@ export default {
     },
 
     FETCH_USERINFO({commit}, username){
-        fetchUserInfo(username)
+        return fetchUserInfo(username)
             .then(({data}) => {
                 commit("SET_USERINFO", data);
                 return data;
@@ -47,7 +47,7 @@ export default {
             .catch(error => console.log(error));
     },
     FETCH_ASK_DETAIL({commit}, id){
-        fetchAskDetail(id)
+        return fetchAskDetail(id)
             .then(({data}) => {
                 commit("SET_ASK_DETAIL", data);
                 return data;
