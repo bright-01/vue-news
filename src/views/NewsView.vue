@@ -28,25 +28,25 @@
 
 <script>
 import ListItem from "../components/ListItem";
-import bus from "../utils/bus.js";
+// import bus from "../utils/bus.js";
+import ListMixin from "../mixins/ListMixin";
 
 export default {
   name: "NewsView",
   components: {
     ListItem,
-
-
   },
-  created(){
-    bus.$emit('start:spinner');
-    setTimeout(()=>{
-      this.$store.dispatch('FETCH_NEWS')
-          .then( () => {
-            console.log("New Fetched");
-            bus.$emit('end:spinner');
-          }).catch(error => console.log(error));
-    }, 1000)
-  }
+  mixins : [ListMixin]
+  // created(){
+  //   bus.$emit('start:spinner');
+  //   setTimeout(()=>{
+  //     this.$store.dispatch('FETCH_NEWS')
+  //         .then( () => {
+  //           console.log("New Fetched");
+  //           bus.$emit('end:spinner');
+  //         }).catch(error => console.log(error));
+  //   }, 1000)
+  // }
 }
 </script>
 

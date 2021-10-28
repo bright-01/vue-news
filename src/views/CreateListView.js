@@ -10,6 +10,9 @@ import bus from "../utils/bus";
  *
  * Router URL호출 -> CreateListView 에서 api 호출 (news, aks, jobs 공통 사용 ) -> ListView Rendering -> ListView에서는 그냥 ListItem 호출
  *
+ * 단점
+ * - 컴포넌트 깊이가 깊어짐 : 컴포넌트 통신간 어려움 복잡함
+ *
  * */
 export default function createListView(name){
     return {

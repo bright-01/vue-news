@@ -18,8 +18,8 @@ export const router = new VueRouter({
         }, {
             path: '/news', // url 주소
             name: 'news',
-            // component: NewsView // url 주소로 갔을 대 표시될 컴포넌트
-            component: createListView('NewsView') // url 주소로 갔을 대 표시될 컴포넌트
+            component: NewsView // url 주소로 갔을 대 표시될 컴포넌트
+            // component: createListView('NewsView') // url 주소로 갔을 대 표시될 컴포넌트
         }, {
             path: '/ask', // url 주소
             name: 'ask',
@@ -28,8 +28,8 @@ export const router = new VueRouter({
         }, {
             path: '/jobs', // url 주소
             name: 'jobs',
-            // component: JobsView // url 주소로 갔을 대 표시될 컴포넌트
-            component: createListView('JobsView') // url 주소로 갔을 대 표시될 컴포넌트
+            component: JobsView // url 주소로 갔을 대 표시될 컴포넌트
+            // component: createListView('JobsView') // url 주소로 갔을 대 표시될 컴포넌트
         }, {
             path: '/user/:id', // url 주소
             component: UserView // url 주소로 갔을 대 표시될 컴포넌트

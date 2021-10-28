@@ -33,13 +33,15 @@
 
 // import { mapGetters} from 'vuex';
 import ListItem from "../components/ListItem";
-import bus from "../utils/bus";
+// import bus from "../utils/bus";
+import ListMixin from "../mixins/ListMixin";
 
 export default {
   name: "JobsView",
   components:{
     ListItem
   },
+  mixins : [ListMixin]
   // computed: {
     // 1. state를 가져오는 computed 함수
     // fetchJobs (){
@@ -56,16 +58,16 @@ export default {
     //   fetchJobs : 'fetchJobs'
     // })
   // },
-  created(){
-    bus.$emit('start:spinner');
-    setTimeout(()=>{
-      this.$store.dispatch("FETCH_JOBS")
-          .then( () => {
-            console.log("New Fetched");
-            bus.$emit('end:spinner');
-          }).catch(error => console.log(error));
-    }, 1000)
-  }
+  // created(){
+  //   bus.$emit('start:spinner');
+  //   setTimeout(()=>{
+  //     this.$store.dispatch("FETCH_JOBS")
+  //         .then( () => {
+  //           console.log("New Fetched");
+  //           bus.$emit('end:spinner');
+  //         }).catch(error => console.log(error));
+  //   }, 1000)
+  // }
 }
 </script>
 
