@@ -38,6 +38,7 @@
 import ListItem from "../components/ListItem";
 // import bus from "../utils/bus";
 import ListMixin from "../mixins/ListMixin";
+import bus from "../utils/bus";
 export default {
   name: "AskView",
   // created(){
@@ -54,6 +55,7 @@ export default {
     ListItem
   },
   mixins: [ListMixin]
+
 }
 </script>
 

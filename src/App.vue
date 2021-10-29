@@ -14,6 +14,7 @@
 import ToolBar from "./components/ToolBar";
 import Spinner from "./components/Spinner";
 import bus from "./utils/bus.js";
+import axios from "axios";
 export default {
   name: 'App',
   data (){
