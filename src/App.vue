@@ -36,6 +36,69 @@ export default {
     endSpinner(){
       this.loadingStatus = false;
     }
+
+    /**
+     * 비동기 처리 패턴
+     * 1. function callback
+     * 2. promise
+     * 3. async & await
+     * */
+
+// 1. function callback
+// $.get('domain.com/id', function (id){
+//   if ( id === 'john'){
+//     $.get('domain.com/products', function ( products){
+//       console.log(products);
+//     })
+//   }
+// })
+//
+// //2. promise
+// function getId(){
+//   return new Promise(function ( resolve, reject){
+//     $.get('domain.com/id', function(id){
+//       return resolve(id);
+//     })
+//   });
+// }
+//
+// function getProduct(){
+//   ...
+// }
+//
+// function logProduct(){
+//
+// }
+//
+// getId().then(getProduct).then(logProduct).catch();
+
+    // 비동기 처리 예제
+    // loginUser(){
+    //   axios.get('http://jsonplaceholder.typeicode.com/users/1')
+    //   .then(response => {
+    //     if(response.data.id === 1 ){
+    //       console.log('사용자가 인증 되었습니다.');
+    //       axios.get('https://jsonplaceholder.typeicode.com/todos')
+    //       .then(response => {
+    //         this.items = response.data;
+    //       })
+    //     }
+    //   })
+    // },
+    //
+    // async awiat 적용 + 예외 처리
+    // async loginUser1(){
+    //   try {
+    //     let response = await axios.get('http://jsonplaceholder.typeicode.com/users/1');
+    //     if(response.data.id === 1){
+    //       console.log('사용자가 인증되었습니다.');
+    //       let list = await axios.get('https://jsonplaceholder.typeicode.com/todos');
+    //       this.items = list.data;
+    //     }
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
   },
   created() {
     bus.$on('start:spinner', this.startSpinner);

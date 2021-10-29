@@ -12,8 +12,15 @@ function fetchNewsList(){
     return axios.get(`${config.baseUrl}/news/1.json`)
 }
 
-function fetchAskList(){
-    return axios.get(`${config.baseUrl}/ask/1.json`)
+async  function fetchAskList(){
+    try{
+        const respose = await axios.get(`${config.baseUrl}/ask/1.json`);
+        return respose;
+        // return await axios.get(`${config.baseUrl}/ask/1.json`) 이렇게 해도 된다
+    } catch (e) {
+        console.error(e);
+    }
+
 }
 
 function fetchJobsList(){
