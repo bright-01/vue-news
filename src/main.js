@@ -2,6 +2,7 @@ import Vue from 'vue';
 import App from './App.vue';
 import { router } from './routers/index';
 import { store } from './store/index';
+import Plugin from './plugins/Plugin';
 
 Vue.config.productionTip = false
 
@@ -19,5 +20,6 @@ Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
   router,
-  store
+  store,
+  Plugin
 }).$mount('#app')
